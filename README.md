@@ -1,9 +1,10 @@
 # MyUniversity
 
-Installed on this EC2 instance is mysql 5.7. You can connect to it via CLI using the following command
+Installed on this EC2 instance is mysql 5.7. You can connect to it via CLI using the following command:
 ```
 mysql -u myuniversity -p -h myuniversity.......us-east-2.rds.amazonaws.com
 ```
+Get the mysql host from Udit.
 
 I've included a sample python script on how to login to mysql programmatically. 
 Feel free to test out code there. Once you're happy with the code, feel free to 
@@ -19,6 +20,7 @@ chmod 400 *somekey.pem*
 ```
 ssh -i "somekey.pem" ubuntu@ec2-......compute.amazonaws.com
 ```
+Get the ec2 host from Udit.
 
 ## Goal
 
