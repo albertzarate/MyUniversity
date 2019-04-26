@@ -2,7 +2,7 @@
 
 Installed on this EC2 instance is mysql 5.7. You can connect to it via CLI using the following command
 ```
-mysql -u myuniversity -p -h myuniversity.cwscsavqzqxt.us-east-2.rds.amazonaws.com
+mysql -u myuniversity -p -h myuniversity.......us-east-2.rds.amazonaws.com
 ```
 
 I've included a sample python script on how to login to mysql programmatically. 
