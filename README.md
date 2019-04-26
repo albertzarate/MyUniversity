@@ -27,3 +27,7 @@ Get the ec2 host from Udit.
 End goal is to use python and this mysql-connector package to read and write from 
 AWS RDS MySQL which running in the same VPC. Afterwards, the HTML/CSS should be able
 to render that information in tables/graphs. 
+
+## Helpful Links
+https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
