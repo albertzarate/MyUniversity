@@ -68,6 +68,8 @@ create table course_info(
 	course_id char(6) NOT NULL UNIQUE,
 	name varchar(255) NOT NULL,
 	description char(255) NOT NULL,
+	start_time char(6) NOT NULL,
+	end_time char(6) NOT NULL,
 	room_id char(9) NOT NULL,
 	year INT UNSIGNED NOT NULL,
 	semester char(6) NOT NULL,

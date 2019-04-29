@@ -39,7 +39,7 @@ BEGIN
     DECLARE i INT DEFAULT 100;
     DECLARE j INT DEFAULT 100101;
     WHILE i <= 390 DO
-        INSERT INTO room_info (room_id, building, room_number, max_occupancy) VALUES (j, "ENGR" , i, 30);
+        INSERT INTO room_info (room_id, building, room_number, max_occupancy) VALUES (j, "ENGR" , i, 60);
         SET i = i + 2;
         SET j = j + 1;
     END WHILE;
@@ -87,6 +87,13 @@ INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone,
 INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("070418418", "Josh", "Tallboy", "Mark", "(760)-741-7321", "HGH", 270, TRUE);
 INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("070418422", "Akash", "Vachhani", "Kishor", "(510)-291-2421", "ENGR", 294, TRUE);
 
+
+#populates course_info table
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001242", "E10", "Intro to Engineering", "10:30", "11:45", "100170", 2019, "Fall", "070418411",  1);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001243", "CmpE 172", "Enterprise Software", "12:15", "14:45", "100102", 2019, "Spring", "070418412",  1);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001244", "CmpE 124", "Logic Circuit Design", "10:30", "14:15", "100106", 2019, "Fall", "027914122",  1);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001245", "Art 31", "Graphic Design", "300145", "8:00", "9:15" 2019, "Fall", "070418422",  1);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001246", "Comm 20", "Public Speaking", "200166", "15:30", "18:30", 2019, "Fall", "070418411",  1);
 
 #update balance on student info table based off transaction history
 UPDATE student_info s
