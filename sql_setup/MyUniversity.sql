@@ -35,12 +35,19 @@ create table transaction_details(
 	FOREIGN KEY (student_id) REFERENCES student_info(student_id)
 );
 
+create table building_info(
+	building char(4) NOT NULL UNIQUE,
+	building_name varchar(255) NOT NULL,
+	PRIMARY KEY (building)
+);
+
 create table room_info(
 	room_id char(6) NOT NULL UNIQUE,
-	building char(45) NOT NULL UNIQUE,
+	building char(4) NOT NULL,
 	room_number INT(4) NOT NULL,
 	max_occupancy INT(4) NOT NULL,
-	PRIMARY KEY (room_id)
+	PRIMARY KEY (room_id),
+	FOREIGN KEY (building) REFERENCES building_info (building)
 );
 
 create table teacher_info(
@@ -48,12 +55,13 @@ create table teacher_info(
 	first_name varchar (255) NOT NULL,
 	last_name varchar (255) NOT NULL,
 	middle_name varchar (255) NOT NULL,
-	phone char(12) NOT NULL,
+	phone char(14) NOT NULL,
+	building char(4) NOT NULL,
 	room_id char(6) NOT NULL,
 	currently_employed BOOLEAN,
 	PRIMARY KEY (teacher_id),
-	FOREIGN KEY (room_id) REFERENCES room_info (room_id)
-
+	FOREIGN KEY (room_id) REFERENCES room_info (room_id),
+	FOREIGN KEY (building) REFERENCES room_info (building)
 );
 
 create table course_info(
