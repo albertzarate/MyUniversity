@@ -10,3 +10,14 @@ INSERT INTO transaction_details (student_id, transaction_id, amount, deposit, no
 
 #update the balance of students after a deposit or bill is posted in the transaction table
 UPDATE student_info (balance) SELECT SUM(amount) FROM transaction_details WHERE student_id = 010241245;
+
+#better sql command than line 12 because it gets past corner cases
+UPDATE student_info s
+INNER JOIN
+(
+   SELECT student_id, SUM(amount) 'sumu'
+   FROM transaction_details 
+   GROUP BY student_id
+) i ON s.student_id = i.student_id
+SET s.balance = i.sumu
+WHERE s.student_id = 010241245;

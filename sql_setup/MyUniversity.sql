@@ -34,3 +34,38 @@ create table transaction_details(
 	PRIMARY KEY (transaction_id),
 	FOREIGN KEY (student_id) REFERENCES student_info(student_id)
 );
+
+create table room_info(
+	room_id char(6) NOT NULL UNIQUE,
+	building char(45) NOT NULL UNIQUE,
+	room_number INT(4) NOT NULL,
+	max_occupancy INT(4) NOT NULL,
+	PRIMARY KEY (room_id)
+);
+
+create table teacher_info(
+	teacher_id char(9) NOT NULL UNIQUE,
+	first_name varchar (255) NOT NULL,
+	last_name varchar (255) NOT NULL,
+	middle_name varchar (255) NOT NULL,
+	phone char(12) NOT NULL,
+	room_id char(6) NOT NULL,
+	currently_employed BOOLEAN,
+	PRIMARY KEY (teacher_id),
+	FOREIGN KEY (room_id) REFERENCES room_info (room_id)
+
+);
+
+create table course_info(
+	course_id char(6) NOT NULL UNIQUE,
+	name varchar(255) NOT NULL,
+	description char(255) NOT NULL,
+	room_id char(9) NOT NULL,
+	year INT UNSIGNED NOT NULL,
+	semester char(6) NOT NULL,
+	teacher_id char(9) NOT NULL,
+	enrolled_amount INT UNSIGNED NOT NULL,
+	PRIMARY KEY (course_id),
+	FOREIGN KEY (room_id) REFERENCES room_info (room_id),
+	FOREIGN KEY (teacher_id) REFERENCES teacher_info (teacher_id)
+);
