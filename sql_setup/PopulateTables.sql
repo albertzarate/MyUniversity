@@ -13,7 +13,7 @@ INSERT INTO Login_info (student_id, username, password) values ("024147310" , "P
 INSERT INTO Login_info (student_id, username, password) values ("024147220" , "CrazyGOAT", MD5("Wildin@2019"));
 INSERT INTO Login_info (student_id, username, password) values ("024147209" , "Mathews1999", MD5("NavinaIsMySister"));
 INSERT INTO Login_info (student_id, username, password) values ("010241245" , "Goat", MD5("MI6@2019"));
-INSERT INTO Login_info (student_id, username, password) values ("102341789" , "Princess", MD5("tacobell"));
+INSERT INTO Login_info (student_id, username, password) values ("102341789" , "Princess", MD5("hashmypassword"));
 
 #populates transaction table
 INSERT INTO transaction_details (student_id, transaction_id, amount, deposit, note, transaction_title) values ("024147310", 101224, "-1000", FALSE, "Test value", "Spring Tuition");

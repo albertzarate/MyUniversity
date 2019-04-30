@@ -1,3 +1,4 @@
+drop database IF EXISTS MyUniversity;
 CREATE DATABASE MyUniversity;
 USE MyUniversity;
 
