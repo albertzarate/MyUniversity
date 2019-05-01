@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dashboard | MyUniversity</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="responsive.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm">
+            <a class="navbar-brand" href="/index.html"><img src="/Images/MyUniversity-logo.png" alt="logo" style="height:40px; margin-right:10px;">MyUniversity</a>
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 4</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section>
+            <div class="dashboardPage">
+                <div class="dashboardHeader">
+                    <h1>Student Dashboard</h1>
+                </div>
+                <div class="dashboardInformation">
+                    <div class="tab">
+                        <button class="tablinks" onclick="openTab(event, 'Personal Information')" id="defaultOpen">Personal Information</button>
+                        <button class="tablinks" onclick="openTab(event, 'Academic Status')" id="defaultOpen">Academic Status</button>
+                        <button class="tablinks" onclick="openTab(event, 'Current Courses')">Current Courses</button>
+                        <button class="tablinks" onclick="openTab(event, 'Transactions')">Transactions</button>
+                    </div>
+                    <div id="Personal Information" class="tabcontent">
+                        <div class="personalInformationHeader">
+                            <div class="left">
+                            <h2>Personal Information</h2>
+                            </div>
+                            <div class="right">
+                                <a href="/edit.html">Edit</a>
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <table>
+                            <tr>
+                                <td class="identifier">Student ID: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                            <tr>
+                                <td class="identifier">Name: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                            <tr>
+                                <td class="identifier">Email: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                            <tr style="padding-bottom: 20px;">
+                                <td class="identifier">Address: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                        </table>
+                        <hr>
+                        <h2>MyUniversity Account Information</h2>
+                        <table>
+                             <tr>
+                                <td class="identifier">Username: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="identifier">Password: </td>
+                                <td><input type="password" value="SQLSTATEMENT" id="myInput">
+                                </td>
+                            </tr>
+                            <tr class="pwToggler">
+                                <td>&nbsp;</td>
+                                <td><input type="checkbox" onclick="myFunction()">Show Password</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="Academic Status" class="tabcontent">
+                        <h2>Academic Status</h2>
+                        <table>
+                            <tr>
+                                <td class="identifier">Enrollment Status: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                            <tr>
+                                <td class="identifier">Major: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                            <tr>
+                                <td class="identifier">Minor: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                            <tr>
+                                <td class="identifier">Expected Graduation Date: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="Current Courses" class="tabcontent">
+                        <h2>Current Courses</h2>
+                    </div>
+                    <div id="Transactions" class="tabcontent">
+                        <h2>Transactions</h2>
+                        <table>
+                            <tr>
+                                <td class="identifier">Balance: </td>
+                                <td>SQL STATEMENT GOES HERE</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            document.getElementById("defaultOpen").click();
+            function openTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+              
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                tablinks = document.getElementsByClassName("tablinks");
+             
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                
+                if (x.type === "password") {
+                    x.type = "text";
+                } 
+                else {
+                    x.type = "password";
+                }
+            }
+        </script>
+    </body>
+</html>
