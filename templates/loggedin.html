@@ -15,23 +15,17 @@
     <body>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm">
-            <a class="navbar-brand" href="/index.html"><img src="../static/MyUniversity-logo.png" alt="logo" style="height:40px; margin-right:10px;">MyUniversity</a>
+            <a class="navbar-brand" href="/loggedin.html"><img src="../static/MyUniversity-logo.png" alt="logo" style="height:40px; margin-right:10px;">MyUniversity</a>
             <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link 1</a>
+                        <button onclick="window.location.href = '/dashboard';">Dashboard</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 3</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 4</a>
+                        <button onclick="window.location.href = '/logout';">Logout</button>
                     </li>
                 </ul>
             </div>
@@ -43,8 +37,7 @@
                 <div class="section-1">
                     <img src="../static/logo.png" height="150" width="150"/>
                     <h1>Welcome, {{userinfo['name']}}!</h1>
-                    <button onclick="window.location.href = '/dashboard';" class="loggedIn">My Dashboard</button>
-                    <button onclick="window.location.href = '/logout';" class="loggedIn">Logout</button>
+                    <button onclick="window.location.href = '/dashboard';">View Dashboard</button>
                 </div>
             </div>
             <div class="section">

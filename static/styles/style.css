@@ -41,6 +41,17 @@ nav a:hover {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
+.nav-item button {
+    background-color: #025ca0;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    border: none;
+    margin: 0 15px;
+    width: auto;
+}
+.nav-item button:hover {
+    font-weight: 600;
+}
 
 
 
@@ -151,6 +162,7 @@ button.loggedIn {
     font-weight: 600;
     color: #000;
     letter-spacing: 0.5px;
+    font-family: 'Lato', sans-serif;
 }
 .dashboardInformation {
     margin: 10px;
@@ -191,15 +203,16 @@ button.loggedIn {
     font-weight: 600;
     letter-spacing: 0.25px;
     margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
 }
 .dashboardPage td.identifier {
-    font-family: 'Lato', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     padding-right: 20px;
     padding-bottom: 15px;
 }
 .dashboardPage td {
-    font-family: 'Lato', sans-serif;
+    font-family: "Montserrat", sans-serif;
     padding-bottom: 15px;
 }
 .dashboardPage a {
@@ -224,7 +237,7 @@ button.loggedIn {
     border: none;
 }
 .dashboardPage tr.pwToggler {
-    font-family: 'Lato', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
 }
 .dashboardPage input[type="checkbox"] {
