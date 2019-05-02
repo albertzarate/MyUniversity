@@ -11,21 +11,18 @@
 	font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
-h1, h2 {
-    font-family: 'Lato', sans-serif;
+.section {
+    text-align: center;
 }
-p {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-}
-
 
 
 /** NAVIGATION **/
 .navbar {
-    background-color: #0055A2!important;
+    background-color: #025ca0!important;
     font-family: 'Lato', sans-serif;
     font-size: 1.25em;
+    position:absolute;
+    z-index: 999;
 }
 .navbar-nav {
     text-align: center;
@@ -47,27 +44,21 @@ nav a:hover {
 
 
 /** HOME PAGE **/
-.homePage {
-    width: 100%;
-    height: 100%;
+.section-1 {
+    margin-top: -150px;
 }
-.homePage h1 {
+.section-1 h1 {
     text-align: center;
-    margin-top: 200px;
+    font-family: 'Lato', sans-serif;
+    margin: 20px 0;
+    letter-spacing: 0.5px;
 }
-.homePage a:hover {
-    text-decoration: none;
-}
-.homePageButtons {
-    width: 50%;
-    margin: 20px auto;
-}
-.homePageButtons button {
-    width: 80%; 
+.section-1 button {
+    width: 30%; 
     display: block;
     margin: 0 auto;
     border: none;
-    background-color: #939597;
+    background-color: #025ca0;
     color: #FFF;
     font-family: 'Lato', sans-serif;
     font-size: 20px; 
@@ -75,11 +66,66 @@ nav a:hover {
     padding: 10px;
     letter-spacing: 0.75px;
 }
-.homePageButtons button:hover {
-    background-color: #757575;
+.section-1 button:hover {
+    background-color: #024e88;
 	-webkit-transition:background 0.3s ease-in-out;
 	-moz-transition:background 0.3s ease-in-out;
 	transition:background-color 0.3s ease-in-out;
+}
+.section-2, .section-3 {
+    width: 80%;
+    margin: 0 auto;
+}
+.two-third {
+    text-align: left;
+    width: 65%;
+    display: inline-block;
+}
+.section-2 h2, .section-3 h2 {
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: "Montserrat", sans-serif;
+}
+.section-3 h2 {
+    color: #000;
+}
+.section-2 h3, .section-3 h3 {
+    color: #fff;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+.section-3 h3 {
+    color: #000;
+}
+.section-2 ul {
+    padding-left: 20px;
+}
+.one-third {
+    width: 34%;
+    display: inline-block;
+}
+.section-2 .fa-book {
+    font-size: 200px
+}
+.section-3 .fa-laptop {
+    font-size: 200px;
+    color: #025ca0;
+}
+.section-4 {
+    margin-top: -125px;
+}
+.section-4 h4 {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 50px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+.section-4 h5 {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
 }
 
 
@@ -219,7 +265,7 @@ nav a:hover {
 }
 .dashboardPage a:hover {
     text-decoration: none;
-    color: #0055A2;
+    color: #025ca0;
     transition: 0.3s;
 }
 .dashboardPage .left {
