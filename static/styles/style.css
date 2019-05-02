@@ -16,6 +16,7 @@
 }
 
 
+
 /** NAVIGATION **/
 .navbar {
     background-color: #025ca0!important;
@@ -74,7 +75,7 @@ nav a:hover {
 }
 .section-2, .section-3 {
     width: 80%;
-    margin: 0 auto;
+    margin: -80px auto 0 auto;
 }
 .two-third {
     text-align: left;
@@ -127,68 +128,10 @@ nav a:hover {
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
 }
-
-
-
-/** LOGIN PAGE **/
-.loginForm {
-    display: block;
-	width: 40%;
-	margin: 150px auto 0 auto;
-	position: relative;
-    text-align: left;
-    
-}
-.loginForm img {
-    width: 50%;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: -10px;
-}
-.loginForm #form {
-	display: inline-block;
-	padding: 25px;
-    width:100%;
-}
-.loginForm fieldset {
-	border: medium none !important;
-	margin: 0 0 15px;
-	padding: 0;
-}
-.loginForm #form input[placeholder] {
-    text-transform: uppercase;
-}
-.loginForm #form textarea, #form input[type="text"] {
-	width: 100%;
-	border: 1px solid #939597;
-	background: #FFF;
-	margin: 0 0 5px;
-	padding: 10px;
-    color: #757575;
-}
-.loginForm #form textarea:hover, #form input[type="text"]:hover 
-{
-    border: 1px solid #757575;
-	-webkit-transition:border-color 0.3s ease-in-out;
-	-moz-transition:border-color 0.3s ease-in-out;
-	transition:border-color 0.3s ease-in-out;
-}
-.loginForm #form button[type="submit"] {
-	width: 100%;
-	background-color: #939597;
-	color: #FFF;
-    border: none;
-	padding: 10px;
-	font-size: 20px;
-    font-family: 'Lato', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.75px;
-}
-.loginForm #form button[type="submit"]:hover {
-	background-color: #757575;
-	-webkit-transition: background 0.3s ease-in-out;
-	-moz-transition: background 0.3s ease-in-out;
-	transition: background-color 0.3s ease-in-out;
+button.loggedIn {
+    width: 20%;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 
