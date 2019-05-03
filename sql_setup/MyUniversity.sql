@@ -2,13 +2,12 @@ drop database IF EXISTS MyUniversity;
 CREATE DATABASE MyUniversity;
 USE MyUniversity;
 
-
 create table student_info(
 	student_id char(9) NOT NULL UNIQUE,
 	first_name varchar (255) NOT NULL,
 	last_name varchar (255) NOT NULL,
 	middle_name varchar (255) NOT NULL,
-	email varchar (255) NOT NULL, 
+	email varchar (255) NOT NULL UNIQUE, 
 	address varchar (255) NOT NULL,
 	enrolled BOOLEAN NOT NULL,
 	major varchar (255) NOT NULL,
@@ -19,10 +18,13 @@ create table student_info(
 	PRIMARY KEY (student_id)
 );
 create table Login_info(
+	id INT NOT NULL AUTO_INCREMENT,
+	email varchar(255) NOT NULL UNIQUE,
 	student_id char(9) NOT NULL UNIQUE,
-	username varchar (255) NOT NULL UNIQUE,
-	password varchar (255) NOT NULL,
-	FOREIGN KEY (student_id) REFERENCES student_info(student_id)
+	password varchar(255) NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (student_id) REFERENCES student_info(student_id),
+	FOREIGN KEY (email) REFERENCES student_info(email)
 );
 
 create table transaction_details(
@@ -76,7 +78,17 @@ create table course_info(
 	semester char(6) NOT NULL,
 	teacher_id char(9) NOT NULL,
 	enrolled_amount INT UNSIGNED NOT NULL,
+	max_enrollment INT UNSIGNED NOT NULL,
 	PRIMARY KEY (course_id),
 	FOREIGN KEY (room_id) REFERENCES room_info (room_id),
 	FOREIGN KEY (teacher_id) REFERENCES teacher_info (teacher_id)
+);
+
+create table enrollment_info(
+	id INT AUTO_INCREMENT NOT NULL,
+	course_id char(6) NOT NULL,
+	student_id char(9) NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (course_id) REFERENCES course_info (course_id),
+	FOREIGN KEY (student_id) REFERENCES student_info (student_id)
 );
