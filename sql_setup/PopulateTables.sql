@@ -9,11 +9,11 @@ INSERT INTO student_info (student_id, first_name, last_name, middle_name, email,
 INSERT INTO student_info (student_id, first_name, last_name, middle_name, email, address, enrolled, major, minor, expected_grad_year, expected_grad_sem, balance) VALUES ("102341789", "Meghan", "Markle", "James", "suits@gmail.com", "1 Cambridge Lane, Westminister, UK 95012-31", TRUE, "Pre-Law", "HR Management", 2023, "Spring", 0);
 
 #populates login info table
-INSERT INTO Login_info (student_id, username, password) values ("024147310" , "Prince Donald", MD5("hashmypassword"));
-INSERT INTO Login_info (student_id, username, password) values ("024147220" , "CrazyGOAT", MD5("Wildin@2019"));
-INSERT INTO Login_info (student_id, username, password) values ("024147209" , "Mathews1999", MD5("NavinaIsMySister"));
-INSERT INTO Login_info (student_id, username, password) values ("010241245" , "Goat", MD5("MI6@2019"));
-INSERT INTO Login_info (student_id, username, password) values ("102341789" , "Princess", MD5("hashmypassword"));
+INSERT INTO Login_info (student_id, email, password) values ("024147310" , "whoisthis@gmail.com", MD5("hashmypassword"));
+INSERT INTO Login_info (student_id, email, password) values ("024147220" , "ilovetacobell@yahoo.com", MD5("Wildin@2019"));
+INSERT INTO Login_info (student_id, email, password) values ("024147209" , "mark@gmail.com", MD5("NavinaIsMySister"));
+INSERT INTO Login_info (student_id, email, password) values ("010241245" , "donald.Lifestyle@gmail.com", MD5("MI6@2019"));
+INSERT INTO Login_info (student_id, email, password) values ("102341789" , "suits@gmail.com", MD5("hashmypassword"));
 
 #populates transaction table
 INSERT INTO transaction_details (student_id, transaction_id, amount, deposit, note, transaction_title) values ("024147310", 101224, "-1000", FALSE, "Test value", "Spring Tuition");
@@ -89,11 +89,11 @@ INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone,
 
 
 #populates course_info table
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001242", "E10", "Intro to Engineering", "10:30", "11:45", "100170", 2019, "Fall", "070418411",  1);
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001243", "CmpE 172", "Enterprise Software", "12:15", "14:45", "100102", 2019, "Spring", "070418412",  1);
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001244", "CmpE 124", "Logic Circuit Design", "10:30", "14:15", "100106", 2019, "Fall", "027914122",  1);
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001245", "Art 31", "Graphic Design", "300145", "8:00", "9:15" 2019, "Fall", "070418422",  1);
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount) values ("001246", "Comm 20", "Public Speaking", "200166", "15:30", "18:30", 2019, "Fall", "070418411",  1);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001242", "E10", "Intro to Engineering", "10:30", "11:45", "100170", 2019, "Fall", "070418411",  0, 30);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001243", "CmpE 172", "Enterprise Software", "12:15", "14:45", "100102", 2019, "Spring", "070418412",  0, 30);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001244", "CmpE 124", "Logic Circuit Design", "10:30", "14:15", "100106", 2019, "Fall", "027914122",  0, 30);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001245", "Art 31", "Graphic Design", "300145", "8:00", "9:15" 2019, "Fall", "070418422",  0, 180);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001246", "Comm 20", "Public Speaking", "200166", "15:30", "18:30", 2019, "Fall", "070418411",  0, 45);
 
 #update balance on student info table based off transaction history
 UPDATE student_info s
