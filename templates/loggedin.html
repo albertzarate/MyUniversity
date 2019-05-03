@@ -31,8 +31,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <h1 class="w3-margin w3-jumbo">MyUniversity</h1>
   <h2 class="logged-in-box auth0-box logged-in">
       <!-- <img class="avatar" src="{{userinfo['picture']}} height="100" width="100""/> -->
-      <h2>Welcome, {{userinfo['name']}}!</h2>
-      <!-- <pre>{{userinfo_pretty}}</pre> -->
+      <h2>Welcome, {{dbuserinfo['first_name']}} {{dbuserinfo['last_name']}}!</h2>
+      <h5><font color="grey">{{userinfo['email']}}</font></h5>
+      <!-- <h2>{{userinfo}}!</h2> -->
   </h2>
   <button onclick="window.location.href = '/dashboard';" class="w3-button w3-padding-large w3-large w3-margin-top" style="background-color:#025ca0;"><font color="white">My Dashboard</font></button>
   <button onclick="window.location.href = '/logout';" class="w3-button w3-padding-large w3-large w3-margin-top" style="background-color:#025ca0;"><font color="white">Logout</font></button>

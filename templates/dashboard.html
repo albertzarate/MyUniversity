@@ -16,7 +16,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav ml-auto">
+                <!-- <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link 1</a>
                     </li>
@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link 4</a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </nav>
         <section>
@@ -57,19 +57,19 @@
                         <table>
                             <tr>
                                 <td class="identifier">Student ID: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{dbuserinfo['student_id']}}</td>
                             </tr>
                             <tr>
                                 <td class="identifier">Name: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{dbuserinfo['first_name']}} {{dbuserinfo['last_name']}}</td>
                             </tr>
                             <tr>
                                 <td class="identifier">Email: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{userinfo['email']}}</td>
                             </tr>
                             <tr style="padding-bottom: 20px;">
                                 <td class="identifier">Address: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{dbuserinfo['address']}}</td>
                             </tr>
                         </table>
                         <hr>
@@ -96,31 +96,40 @@
                         <table>
                             <tr>
                                 <td class="identifier">Enrollment Status: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{dbuserinfo['enrolled']}}</td>
                             </tr>
                             <tr>
                                 <td class="identifier">Major: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{dbuserinfo['major']}}</td>
                             </tr>
                             <tr>
                                 <td class="identifier">Minor: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{dbuserinfo['minor']}}</td>
                             </tr>
                             <tr>
                                 <td class="identifier">Expected Graduation Date: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{dbuserinfo['expected_grad_sem']}} {{dbuserinfo['expected_grad_year']}}</td>
                             </tr>
                         </table>
                     </div>
                     <div id="Current Courses" class="tabcontent">
                         <h2>Current Courses</h2>
+                        <table style="width:70%">
+                          {%for course in dbuserinfo['courses']%}
+                          <tr>
+                            <td>{{course['course_id']}}</td>
+                            <td>{{course['name']}}</td>
+                            <td>{{course['description']}}</td>
+                          </tr>
+                          {%endfor%}
+                        </table>
                     </div>
                     <div id="Transactions" class="tabcontent">
                         <h2>Transactions</h2>
                         <table>
                             <tr>
                                 <td class="identifier">Balance: </td>
-                                <td>SQL STATEMENT GOES HERE</td>
+                                <td>{{dbuserinfo['balance']}}</td>
                             </tr>
                         </table>
                     </div>

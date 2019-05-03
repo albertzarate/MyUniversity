@@ -11,6 +11,7 @@ from flask import url_for
 from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
 from functools import wraps
+from sql import *
 
 app = Flask(__name__)
 app.secret_key = "MPiVP8ZtlTBI7h_7V6FJZf8gfopHOMoDSjtTIz0fLZMPWeYxYYH6cYfKW0tJgPeW"
@@ -24,7 +25,7 @@ auth0 = oauth.register(
     access_token_url='https://dev-jv5aht4v.auth0.com/oauth/token',
     authorize_url='https://dev-jv5aht4v.auth0.com/authorize',
     client_kwargs={
-        'scope': 'openid profile',
+        'scope': 'openid email profile',
     },
 )
 
@@ -52,27 +53,33 @@ def callback_handling():
     auth0.authorize_access_token()
     resp = auth0.get('userinfo')
     userinfo = resp.json()
+    #populate info table
+    if verifyLogin(userinfo['email']):
+        db_user_info = dict(getInfo(userinfo['email']).items())
+        courses = getEnrollment(db_user_info['student_id'])
+        db_user_info['courses'] = courses
+    else:
+        db_user_info = {'first_name': 'Unregistered', 'last_name': 'User'}
+        courses = ['N/A']
 
-    # Store the user information in flask session.
-    session['jwt_payload'] = userinfo
+    session['webUserInfo'] = db_user_info
     session['profile'] = {
         'user_id': userinfo['sub'],
         'name': userinfo['name'],
-        'picture': userinfo['picture']
+        'picture': userinfo['picture'],
+        'email': userinfo['email']
     }
     return redirect('/loggedin')
 
 @app.route('/loggedin')
 @requires_auth
 def loggedin():
-    return render_template('loggedin.html',
-                           userinfo=session['profile'],
-                           userinfo_pretty=json.dumps(session['jwt_payload'], indent=4))
+    return render_template('loggedin.html', userinfo=session['profile'], dbuserinfo=session['webUserInfo'])
 
 @app.route('/dashboard')
 @requires_auth
 def dashboard():
-    return render_template('dashboard.html', userinfo=session['profile'])
+    return render_template('dashboard.html', userinfo=session['profile'], dbuserinfo=session['webUserInfo'])
 
 @app.route('/logout')
 def logout():
