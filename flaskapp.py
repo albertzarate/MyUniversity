@@ -81,6 +81,11 @@ def loggedin():
 def dashboard():
     return render_template('dashboard.html', userinfo=session['profile'], dbuserinfo=session['webUserInfo'])
 
+@app.route('/edit')
+@requires_auth
+def edit():
+    return render_template('edit.html', userinfo=session['profile'], dbuserinfo=session['webUserInfo'])
+
 @app.route('/logout')
 def logout():
     # Clear session stored data
