@@ -107,14 +107,14 @@
                     </div>
                     <div id="Current Courses" class="tabcontent">
                         <h2>Current Courses</h2>
-                        <table style="width:70%">
-                          {%for course in dbuserinfo['courses']%}
-                          <tr>
-                            <td>{{course['course_id']}}</td>
-                            <td>{{course['name']}}</td>
-                            <td>{{course['description']}}</td>
-                          </tr>
-                          {%endfor%}
+                        <table>
+                            {%for course in dbuserinfo['courses']%}
+                                <tr>
+                                    <td>{{course['course_id']}}</td>
+                                    <td>{{course['name']}}</td>
+                                    <td>{{course['description']}}</td>
+                                </tr>
+                            {%endfor%}
                         </table>
                     </div>
                     <div id="Transactions" class="tabcontent">

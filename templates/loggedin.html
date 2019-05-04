@@ -36,7 +36,8 @@
             <div class="section">
                 <div class="section-1">
                     <img src="../static/logo.png" height="150" width="150"/>
-                    <h1>Welcome, {{userinfo['name']}}!</h1>
+                    <h1>Welcome, {{dbuserinfo['first_name']}} {{dbuserinfo['last_name']}}!</h1>
+                    <p>{{userinfo['email']}}</p>
                     <button onclick="window.location.href = '/dashboard';">View Dashboard</button>
                 </div>
             </div>
