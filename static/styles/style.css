@@ -11,21 +11,18 @@
 	font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
-h1, h2 {
-    font-family: 'Lato', sans-serif;
+.section {
+    text-align: center;
 }
-p {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-}
-
 
 
 /** NAVIGATION **/
 .navbar {
-    background-color: #0055A2!important;
+    background-color: #025ca0!important;
     font-family: 'Lato', sans-serif;
     font-size: 1.25em;
+    position:absolute;
+    z-index: 999;
 }
 .navbar-nav {
     text-align: center;
@@ -43,31 +40,40 @@ nav a:hover {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-
+.nav-item button {
+    background-color: #025ca0;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    border: none;
+    margin: 0 15px;
+    width: auto;
+}
+.nav-item button:hover {
+    font-weight: 600;
+}
 
 
 /** HOME PAGE **/
-.homePage {
-    width: 100%;
-    height: 100%;
+.section-1 {
+    margin-top: -150px;
 }
-.homePage h1 {
+.section-1 h1 {
     text-align: center;
-    margin-top: 200px;
+    font-family: 'Lato', sans-serif;
+    margin: 20px 0 10px 0;
+    letter-spacing: 0.5px;
 }
-.homePage a:hover {
-    text-decoration: none;
+.section-1 p {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    margin-bottom: 25px;
 }
-.homePageButtons {
-    width: 50%;
-    margin: 20px auto;
-}
-.homePageButtons button {
-    width: 80%; 
+.section-1 button {
+    width: 30%; 
     display: block;
     margin: 0 auto;
     border: none;
-    background-color: #939597;
+    background-color: #025ca0;
     color: #FFF;
     font-family: 'Lato', sans-serif;
     font-size: 20px; 
@@ -75,81 +81,77 @@ nav a:hover {
     padding: 10px;
     letter-spacing: 0.75px;
 }
-.homePageButtons button:hover {
-    background-color: #757575;
+.section-1 button:hover {
+    background-color: #024e88;
 	-webkit-transition:background 0.3s ease-in-out;
 	-moz-transition:background 0.3s ease-in-out;
 	transition:background-color 0.3s ease-in-out;
 }
-
-
-
-/** LOGIN PAGE **/
-.loginForm {
-    display: block;
-	width: 40%;
-	margin: 150px auto 0 auto;
-	position: relative;
+.section-2, .section-3 {
+    width: 80%;
+    margin: -80px auto 0 auto;
+}
+.two-third {
     text-align: left;
-    
+    width: 65%;
+    display: inline-block;
 }
-.loginForm img {
-    width: 50%;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: -10px;
+.section-2 h2, .section-3 h2 {
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: "Montserrat", sans-serif;
 }
-.loginForm #form {
-	display: inline-block;
-	padding: 25px;
-    width:100%;
+.section-3 h2 {
+    color: #000;
 }
-.loginForm fieldset {
-	border: medium none !important;
-	margin: 0 0 15px;
-	padding: 0;
+.section-2 h3, .section-3 h3 {
+    color: #fff;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
 }
-.loginForm #form input[placeholder] {
+.section-3 h3 {
+    color: #000;
+}
+.section-2 ul {
+    padding-left: 20px;
+}
+.one-third {
+    width: 34%;
+    display: inline-block;
+}
+.section-2 .fa-book {
+    font-size: 200px
+}
+.section-3 .fa-laptop {
+    font-size: 200px;
+    color: #025ca0;
+}
+.section-4 {
+    margin-top: -125px;
+}
+.section-4 h4 {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 50px;
     text-transform: uppercase;
+    margin-bottom: 50px;
 }
-.loginForm #form textarea, #form input[type="text"] {
-	width: 100%;
-	border: 1px solid #939597;
-	background: #FFF;
-	margin: 0 0 5px;
-	padding: 10px;
-    color: #757575;
+.section-4 h5 {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
 }
-.loginForm #form textarea:hover, #form input[type="text"]:hover 
-{
-    border: 1px solid #757575;
-	-webkit-transition:border-color 0.3s ease-in-out;
-	-moz-transition:border-color 0.3s ease-in-out;
-	transition:border-color 0.3s ease-in-out;
+button.loggedIn {
+    width: 20%;
+    display: inline-block;
+    margin: 0 10px;
 }
-.loginForm #form button[type="submit"] {
-	width: 100%;
-	background-color: #939597;
-	color: #FFF;
-    border: none;
-	padding: 10px;
-	font-size: 20px;
-    font-family: 'Lato', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.75px;
-}
-.loginForm #form button[type="submit"]:hover {
-	background-color: #757575;
-	-webkit-transition: background 0.3s ease-in-out;
-	-moz-transition: background 0.3s ease-in-out;
-	transition: background-color 0.3s ease-in-out;
-}
-
 
 
 /** DASHBOARD PAGE **/
 .dashboardPage {
-    margin: 50px auto;
+    margin: 50px auto 0 auto;
     width: 75%;
     display: block;
 }
@@ -162,6 +164,7 @@ nav a:hover {
     font-weight: 600;
     color: #000;
     letter-spacing: 0.5px;
+    font-family: 'Lato', sans-serif;
 }
 .dashboardInformation {
     margin: 10px;
@@ -202,6 +205,7 @@ nav a:hover {
     font-weight: 600;
     letter-spacing: 0.25px;
     margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
 }
 .dashboardPage td.identifier {
     font-family: 'Lato', sans-serif;
@@ -219,7 +223,7 @@ nav a:hover {
 }
 .dashboardPage a:hover {
     text-decoration: none;
-    color: #0055A2;
+    color: #025ca0;
     transition: 0.3s;
 }
 .dashboardPage .left {
@@ -240,4 +244,58 @@ nav a:hover {
 }
 .dashboardPage input[type="checkbox"] {
     margin-right: 10px;
+}
+
+
+/** EDIT PAGE **/
+.editPage {
+    margin: 50px auto 0 auto;
+    width: 75%;
+    display: block;
+}
+.editPage h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #000;
+    letter-spacing: 0.5px;
+    font-family: 'Lato', sans-serif;
+    margin: 10px;
+}
+.editPage form {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    border: 1px solid #757575;
+    margin: 20px 10px 10px 10px;
+    text-align: center;
+}
+.editPage label {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 90px;
+    text-align: right;
+    color: #000;
+}
+.editPage fieldset {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.editPage input {
+    width: 500px;
+    padding: 3px 10px;
+    font-family: 'Lato', sans-serif;
+}
+.editPage button {
+    padding: 8px 50px;
+    background-color: #025ca0;
+    border: none;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+.editPage button:hover {
+    background-color: #024e88;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
 }
