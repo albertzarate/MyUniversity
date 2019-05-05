@@ -28,6 +28,12 @@ End goal is to use python and this mysql-connector package to read and write fro
 AWS RDS MySQL which running in the same VPC. Afterwards, the HTML/CSS should be able
 to render that information in tables/graphs. 
 
+## Jenkins
+
+Jenkins CI/CD server is running live on http://18.222.161.78:8080 
+It will generate a build whenever someone pushes to this repo. Build will fail if Jenkins cannot pull most recent changes from Github or if website is down. 
+
 ## Helpful Links
 https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
+
