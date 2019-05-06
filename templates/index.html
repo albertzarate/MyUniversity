@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>MyUniversity</title>
+        <link rel="shortcut icon" href="/static/logo.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../static/styles/style.css">
         <link rel="stylesheet" href="../static/styles/fullpage.css">
@@ -20,49 +21,49 @@
 
         <!-- Header -->
         <div id="fullpage">
-            <div class="section">
-                <div class="section-1">
+            <div class="section section-1">
+                <div class="content">
                     <img src="../static/logo.png" height="150" width="150"/>
                     <h1>MyUniversity</h1>
                     <button onclick="window.location.href = '/login';" style="margin-top:30px;">Login or Sign-Up</button>
                 </div>
             </div>
-            <div class="section">
-                <div class="section-2">
+            <div class="section section-2">
+                <div class="content">
                     <div class="two-third">
                         <h2>Tired of the current MySJSU Portal?</h2>
-                        <h3>
-                            <ul>
-                                <li>Are you tired of pressing the back button by accident and crashing your entire computer?</li>
-                                <li>Are you tired of feeling like you stumbled upon a website made in the 1990s?</li>
-                                <li>Are you tired of basically not being able to use the site on your phone?</li>
-                            </ul>
-                        </h3>
+                        <p>Are you tired of accidentally pressing the back button and crashing your entire computer?</p>
+                        <p>Are you tired of feeling like you stumbled upon a website made in the 1990s?</p>
+                        <p>Are you tired of basically not being able to use the site on your phone?</p>
                     </div>
                     <div class="one-third">
                         <i class="fa fa-book w3-text-white"></i>
                     </div>
                 </div>
             </div>
-            <div class="section">
-                <div class="section-3">
+            <div class="section section-3">
+                <div class="content">
                     <div class="one-third">
                         <i class="fa fa-laptop"></i>
                     </div>
                     <div class="two-third">
                         <h2>WELL FEAR NO MORE!</h2>
-                        <h3>Our website is nice, clean, and cozy. You'll feel right at home using our website. You can do all the things MySJSU can do... such as: sign up, log in, log out, log in again, look at and update your personal information, and sign up for classes. Doesn't that sound great?</h3>
+                        <p>Our website is nice, clean, and cozy. You'll feel right at home using our website.</p>
+                        <p>You can do all the things MySJSU can do: sign up, log in, log out, log in again, look at and update your personal information, view your academic status and current courses, and check your balance due.</p> 
+                        <p>Doesn't that sound great?</p>
                     </div>
                 </div>
             </div>
-            <div class="section">
-                <div class="section-4">
+            <div class="section section-4">
+                <div class="content">
                     <h4>Quote of the Day</h4>
                     <h5>"You should have gone for the head"</h5>
                     <h5>- Thanos</h5>
                 </div>
             </div>
         </div>
+        
+        <script src="js/jquery.fullpage.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -77,8 +78,11 @@
                     x.className = x.className.replace(" w3-show", "");
                 }
             }
-            new fullpage('#fullpage', {
-                sectionsColor: ['#fff', '#025ca0', '#f1f1f1', '#727373'],
+            
+            $(document).ready(function() {
+                $('#fullpage').fullpage({
+                    sectionsColor: ['#fff', '#025ca0', '#f1f1f1', '#727373'],
+                });
             });
         </script>
 </body>

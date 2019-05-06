@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Dashboard | MyUniversity</title>
+        <link rel="shortcut icon" href="/static/logo.png"/>
         <link rel="stylesheet" href="../static/styles/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -57,7 +58,7 @@
                                 <td>{{dbuserinfo['first_name']}} {{dbuserinfo['last_name']}}</td>
                             </tr>
                             <tr>
-                                <td class="identifier">Email: </td>
+                                <td class="identifier">Primary Email: </td>
                                 <td>{{userinfo['email']}}</td>
                             </tr>
                             <tr style="padding-bottom: 20px;">
@@ -69,7 +70,7 @@
                                 <td>{{dbuserinfo['address']}}</td>
                             </tr>
                             <tr style="padding-bottom: 20px;">
-                                <td class="identifier">Phone: </td>
+                                <td class="identifier">Phone Number: </td>
                                 <td>{{dbuserinfo['phone']}}</td>
                             </tr>
                         </table>
@@ -99,6 +100,11 @@
                         <h2>Current Courses</h2>
                         <table style="width:70%">
                             {%for course in dbuserinfo['courses']%}
+                                <tr>
+                                    <th class="section-1">Course ID</th>
+                                    <th class="section-2">Course Name</th>
+                                    <th class="section-3">Course Description</th>
+                                </tr>
                                 <tr>
                                     <td>{{course['course_id']}}</td>
                                     <td>{{course['name']}}</td>
