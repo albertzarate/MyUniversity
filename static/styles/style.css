@@ -207,6 +207,22 @@ button.loggedIn {
     margin-bottom: 20px;
     font-family: "Montserrat", sans-serif;
 }
+.dashboardPage th {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.25px;
+    padding-bottom: 5px;
+}
+.dashboardPage th.section-1 {
+    width: 30%;
+}
+.dashboardPage th.section-2 {
+    width: 30%;
+}
+.dashboardPage th.section-3 {
+    width: 40%;
+}
 .dashboardPage td.identifier {
     font-family: 'Lato', sans-serif;
     font-weight: 600;
@@ -272,7 +288,7 @@ button.loggedIn {
     display: inline-block;
     margin-bottom: 20px;
     margin-right: 10px;
-    width: 90px;
+    width: 150px;
     text-align: right;
     color: #000;
 }
