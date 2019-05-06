@@ -1,7 +1,12 @@
+setuptools
 flask
 python-dotenv
 requests
 authlib
 six
 sqlalchemy
+mysql
 pymysql
+dotenv
+pyopenssl
+mysqlclient
