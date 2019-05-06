@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import request
 from functools import wraps
 import json
 from os import environ as env
@@ -88,12 +89,28 @@ def dashboard():
 def edit():
     return render_template('edit.html')
 
-@app.route('/update')
+@app.route('/edit', methods=['POST'])
 @requires_auth
-def update():
-    dbuserinfo['email'] = form.getvalue('email')
-    dbuserinfo['address'] = form.getvalue('address')
-    dbuserinfo['password'] = form.getvalue('password')
+def form():
+    email = session['profile']['email']
+    new_sec_email = ''
+    new_address = ''
+    new_phone = ''
+    new_sec_email = request.form['sec_email']
+    if new_sec_email is not '':
+        UpdateSecondaryEmail(email, new_sec_email)
+        session['webUserInfo']['sec_email'] = new_sec_email
+        session.modified = True
+    new_address = request.form['address']
+    if new_address is not '':
+        UpdateAddress(email, new_address)
+        session['webUserInfo']['address'] = new_address
+        session.modified = True
+    new_phone = request.form['phone']
+    if new_phone is not '':
+        UpdatePhone(email, new_phone)
+        session['webUserInfo']['phone'] = new_phone
+        session.modified = True
     return redirect('/dashboard')
 
 @app.route('/logout')

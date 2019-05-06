@@ -55,3 +55,23 @@ def verifyLogin(email):
 		return True
 	else:
 		return False
+
+def UpdateData(query):
+	conn = engine.connect()
+	res = conn.execute(query)
+	engine.dispose()
+	if res.returns_rows:
+		# use special handler for dates and decimals
+		return json.dumps([dict(r) for r in res], default=alchemyencoder,encoding='latin-1  ')
+
+def UpdateAddress(email, new_address):
+	query = student_info.update().where(student_info.c.email == email).values (address = new_address)
+	UpdateData(query)
+
+def UpdatePhone(email, new_phone):
+	query = student_info.update().where(student_info.c.email == email).values (address = new_phone)
+	UpdateData(query)
+
+def UpdateSecondaryEmail(email, new_sec_email):
+	query = student_info.update().where(student_info.c.email == email).values (address = new_sec_email)
+	UpdateData(query)

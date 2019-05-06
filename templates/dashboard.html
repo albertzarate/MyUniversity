@@ -61,21 +61,16 @@
                                 <td>{{userinfo['email']}}</td>
                             </tr>
                             <tr style="padding-bottom: 20px;">
+                                <td class="identifier">Secondary Email: </td>
+                                <td>{{dbuserinfo['sec_email']}}</td>
+                            </tr>
+                            <tr style="padding-bottom: 20px;">
                                 <td class="identifier">Address: </td>
                                 <td>{{dbuserinfo['address']}}</td>
                             </tr>
-                        </table>
-                        <hr>
-                        <h2>MyUniversity Account Information</h2>
-                        <table>
-                            <tr>
-                                <td class="identifier">Password: </td>
-                                <td><input type="password" value="SQLSTATEMENT" id="myInput">
-                                </td>
-                            </tr>
-                            <tr class="pwToggler">
-                                <td>&nbsp;</td>
-                                <td><input type="checkbox" onclick="myFunction()">Show Password</td>
+                            <tr style="padding-bottom: 20px;">
+                                <td class="identifier">Phone: </td>
+                                <td>{{dbuserinfo['phone']}}</td>
                             </tr>
                         </table>
                     </div>
