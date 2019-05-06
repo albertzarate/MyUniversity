@@ -95,6 +95,12 @@ INSERT INTO course_info (course_id, name, description, start_time, end_time, roo
 INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001245", "Art 31", "Graphic Design", "300145", "8:00", "9:15" 2019, "Fall", "070418422",  0, 180);
 INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001246", "Comm 20", "Public Speaking", "200166", "15:30", "18:30", 2019, "Fall", "070418411",  0, 45);
 
+INSERT INTO enrollment_info(course_id, student_id) VALUES ("001242","024147310");
+INSERT INTO enrollment_info(course_id, student_id) VALUES ("001243","024147310");
+INSERT INTO enrollment_info(course_id, student_id) VALUES ("001244","024147310");
+INSERT INTO enrollment_info(course_id, student_id) VALUES ("001245","024147310");
+INSERT INTO enrollment_info(course_id, student_id) VALUES ("001246","024147310");
+
 #update balance on student info table based off transaction history
 UPDATE student_info s
 INNER JOIN

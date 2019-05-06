@@ -20,6 +20,14 @@ def connectDB(query):
 	res = conn.execute(query)
 	engine.dispose()
 	return list(res)
+def UpdateData(query):
+	conn = engine.connect()
+	res = conn.execute(query)
+	engine.dispose()
+	if res.returns_rows:
+		# use special handler for dates and decimals
+		return json.dumps([dict(r) for r in res], default=alchemyencoder,encoding='latin-1  ')
+
 
 def commitDB(table1, data):
 	conn = engine.connect()
@@ -34,5 +42,45 @@ def getInfo(key):
 	query = select([student_info]).where(student_info.c.email == key)
 	userInfo = connectDB(query)
 	return userInfo[0]
-	
 
+def getEnrollment(key):
+	query = select([enrollment_info.c.course_id]).where(enrollment_info.c.student_id == key)
+	userEnrollment = connectDB(query)
+	return userEnrollment
+
+def getCourseInfo(key):
+	y = []
+	for x in key:
+		query = select([course_info]).where(course_info.c.course_id == x)
+		y.append(connectDB(query))
+	return y
+
+def verifyLogin(key):
+	query = select([func.count(student_info.c.email)]).where(student_info.c.email == key)
+	isVerified = connectDB(query)
+	return isVerified[0]
+
+def verifyLogin(key_pass, key_email):
+	query = select([func.count(Login_info.c.email)]).where(and_(
+                                                Login_info.c.email == key_email,
+                                                Login_info.c.password == func.md5(key_pass)
+                                                ))
+	isValid = connectDB(query)
+	return isValid[0]
+
+def UpdatePassword(key, new_password):
+	query = Login_info.update().where(Login_info.c.email==key).values(password = new_password)
+	UpdateData(query)
+
+def UpdateEmail(key, new_email):
+	query = Login_info.update().where(Login_info.c.email==key).values(email = new_email)
+	UpdateData(query)
+
+def UpdateAddress(key, new_address):
+	query = student_info.update().where(student_info.c.email == key).values (address = new_address)
+	UpdateData(query)
+	
+## def importLogin(key, password):
+##    query = Login_info.update().where(Login_info.c.email == key).values(Login_info.c.password = func.md5(password))
+##    abc = connectDB(query)
+    
