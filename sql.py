@@ -69,9 +69,9 @@ def UpdateAddress(email, new_address):
 	UpdateData(query)
 
 def UpdatePhone(email, new_phone):
-	query = student_info.update().where(student_info.c.email == email).values (address = new_phone)
+	query = student_info.update().where(student_info.c.email == email).values (phone = new_phone)
 	UpdateData(query)
 
 def UpdateSecondaryEmail(email, new_sec_email):
-	query = student_info.update().where(student_info.c.email == email).values (address = new_sec_email)
+	query = student_info.update().where(student_info.c.email == email).values (sec_email = new_sec_email)
 	UpdateData(query)
