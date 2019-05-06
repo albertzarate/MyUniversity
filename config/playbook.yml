@@ -1,0 +1,37 @@
+--- #aws ec2 instance simple https web page using Apache2
+- hosts: aws
+  remote_user: ubuntu
+  become_method: sudo
+  gather_facts: yes
+  connection: ssh
+  sudo: yes
+  tasks:
+  - name: Creates directory
+    file:
+      path: /home/ubuntu
+      state: directory
+      recurse: yes
+
+  - name: Install pip
+    apt: name=python-pip state=present
+
+  - name: install docker-py
+    pip: name=docker-py
+
+  - name: Copy Dockerfile
+    copy: src=Dockerfile dest=/home/ubuntu/
+
+  - name: Build Docker image from Dockerfile
+    docker_image:
+      name: myuniversity
+      path: /home/ubuntu/
+      state: build
+
+  - name: Running the container
+    docker_container:
+      image: myuniversity:latest
+      path: /home/ubuntu/
+      state: running
+
+  - name: Check if container is running
+    shell: docker ps

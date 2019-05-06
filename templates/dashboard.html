@@ -10,7 +10,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm">
-            <a class="navbar-brand" href="/loggedin.html"><img src="../static/MyUniversity-logo.png" alt="logo" style="height:40px; margin-right:10px;">MyUniversity</a>
+            <a class="navbar-brand" href="/loggedin"><img src="../static/MyUniversity-logo.png" alt="logo" style="height:40px; margin-right:10px;">MyUniversity</a>
             <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,7 +22,7 @@
                     <li class="nav-item">
                         <button onclick="window.location.href = '/logout';">Logout</button>
                     </li>
-                </ul> 
+                </ul>
             </div>
         </nav>
         <section>
@@ -43,7 +43,7 @@
                             <h2>Personal Information</h2>
                             </div>
                             <div class="right">
-                                <a href="/edit.html">Edit</a>
+                                <a href="/edit">Edit</a>
                             </div>
                         </div>
                         <div style="clear:both;"></div>
@@ -102,7 +102,7 @@
                     </div>
                     <div id="Current Courses" class="tabcontent">
                         <h2>Current Courses</h2>
-                        <table>
+                        <table style="width:70%">
                             {%for course in dbuserinfo['courses']%}
                                 <tr>
                                     <td>{{course['course_id']}}</td>

@@ -28,6 +28,21 @@ End goal is to use python and this mysql-connector package to read and write fro
 AWS RDS MySQL which running in the same VPC. Afterwards, the HTML/CSS should be able
 to render that information in tables/graphs. 
 
+## Jenkins
+
+Jenkins CI/CD server is running live on http://18.222.161.78:8080 
+It will generate a build whenever someone pushes to this repo. Build will fail if Jenkins cannot pull most recent changes from Github or if website is down. 
+
+## Docker
+
+Docker is installed on the AWS EC2 instance and is used to create containers of our entire web app. This guarantees that no matter what machine we run our web app on, it will always run successfully (given the appropriate hardware). 
+
+## Ansible
+
+An Ansible file exists in the config folder. It'll SSH into an AWS EC2 instance, install pip, install docker-py, install docker.io, copy over the Dockerfile, build an image from the Dockerfile, create a container using that image, and start the apache server on port 80. The container's port 80 is forwarded to port 80 of the host (EC2 instance).
+
+
 ## Helpful Links
-https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
+https://www.codementor.io/mamytianarakotomalala/how-to-deploy-docker-container-with-ansible-on-debian-8-mavm48kw0
+https://docs.docker.com/v17.12/engine/reference/run/

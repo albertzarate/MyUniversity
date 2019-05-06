@@ -86,6 +86,11 @@ def dashboard():
 @app.route('/edit')
 @requires_auth
 def edit():
+    return render_template('edit.html')
+
+@app.route('/update')
+@requires_auth
+def update():
     dbuserinfo['email'] = form.getvalue('email')
     dbuserinfo['address'] = form.getvalue('address')
     dbuserinfo['password'] = form.getvalue('password')
