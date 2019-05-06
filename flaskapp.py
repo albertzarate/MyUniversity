@@ -12,6 +12,8 @@ from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
 from functools import wraps
 from sql import *
+import cgi
+form = cgi.FieldStorage()
 
 app = Flask(__name__)
 app.secret_key = "MPiVP8ZtlTBI7h_7V6FJZf8gfopHOMoDSjtTIz0fLZMPWeYxYYH6cYfKW0tJgPeW"
@@ -84,7 +86,15 @@ def dashboard():
 @app.route('/edit')
 @requires_auth
 def edit():
-    return render_template('edit.html', userinfo=session['profile'], dbuserinfo=session['webUserInfo'])
+    return render_template('edit.html')
+
+@app.route('/update')
+@requires_auth
+def update():
+    dbuserinfo['email'] = form.getvalue('email')
+    dbuserinfo['address'] = form.getvalue('address')
+    dbuserinfo['password'] = form.getvalue('password')
+    return redirect('/dashboard')
 
 @app.route('/logout')
 def logout():
