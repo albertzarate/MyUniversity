@@ -141,13 +141,28 @@ button.loggedIn {
 
 /** FULLPAGE FADE EFFECT **/
 /** section one **/
-@keyframes fadein {
-    from {opacity: 0;}
-    to {opacity: 1;}
+@keyframes drop-down {
+    from {
+        transform: translateY(-1000px);
+        opacity: 0;
+        transition: transform .66s cubic-bezier(0.16, 0.68, 0.43, 0.99), opacity .66s ease-in-out;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
-.section-1 {
-    animation-name: fadein;
-    animation-duration: 3s;
+.section-1 img {
+    animation-name: drop-down;
+    animation-duration: 1.5s;
+}
+.section-1 h1, .section-1 p {
+    animation-name: drop-down;
+    animation-duration: 1s;
+}
+.section-1 button {
+    animation-name: drop-down;
+    animation-duration: .50s;
 }
 .section-1 > .fp-tableCell img,
 .section-1 > .fp-tableCell h1,
@@ -187,13 +202,13 @@ button.loggedIn {
     opacity: 1;
 }
 .section-2.active > .fp-tableCell p {
-    transition-delay: 0.33s;
+    transition-delay: 0.15s;
 }
 .section-2.active > .fp-tableCell p + p {
-    transition-delay: 0.66s;
+    transition-delay: 0.30s;
 }
 .section-2.active > .fp-tableCell p + p + p{
-    transition-delay: 0.99s;
+    transition-delay: 0.45s;
 }
 /** section three **/
 .section-3 > .fp-tableCell h2,
@@ -208,13 +223,13 @@ button.loggedIn {
     opacity: 1;
 }
 .section-3.active > .fp-tableCell p {
-    transition-delay: 0.33s;
+    transition-delay: 0.15s;
 }
 .section-3.active > .fp-tableCell p + p {
-    transition-delay: 0.66s;
+    transition-delay: 0.30s;
 }
 .section-3.active > .fp-tableCell p + p + p{
-    transition-delay: 0.99s;
+    transition-delay: 0.45s;
 }
 /** section four **/
 .section-4 > .fp-tableCell h4 {
