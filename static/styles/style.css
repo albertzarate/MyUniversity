@@ -54,8 +54,8 @@ nav a:hover {
 
 
 /** HOME PAGE **/
-.section-1 {
-    margin-top: -150px;
+.content {
+    margin-top: -100px;
 }
 .section-1 h1 {
     text-align: center;
@@ -87,13 +87,9 @@ nav a:hover {
 	-moz-transition:background 0.3s ease-in-out;
 	transition:background-color 0.3s ease-in-out;
 }
-.section-2, .section-3 {
-    width: 80%;
-    margin: -80px auto 0 auto;
-}
 .two-third {
     text-align: left;
-    width: 65%;
+    width: 55%;
     display: inline-block;
 }
 .section-2 h2, .section-3 h2 {
@@ -105,19 +101,16 @@ nav a:hover {
 .section-3 h2 {
     color: #000;
 }
-.section-2 h3, .section-3 h3 {
+.section-2 p, .section-3 p {
     color: #fff;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
 }
-.section-3 h3 {
+.section-3 p {
     color: #000;
 }
-.section-2 ul {
-    padding-left: 20px;
-}
 .one-third {
-    width: 34%;
+    width: 25%;
     display: inline-block;
 }
 .section-2 .fa-book {
@@ -127,15 +120,12 @@ nav a:hover {
     font-size: 200px;
     color: #025ca0;
 }
-.section-4 {
-    margin-top: -125px;
-}
 .section-4 h4 {
     color: #fff;
     font-family: "Montserrat", sans-serif;
     font-size: 50px;
     text-transform: uppercase;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .section-4 h5 {
     color: #fff;
@@ -146,6 +136,113 @@ button.loggedIn {
     width: 20%;
     display: inline-block;
     margin: 0 10px;
+}
+
+
+/** FULLPAGE FADE EFFECT **/
+/** section one **/
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.section-1 {
+    animation-name: fadein;
+    animation-duration: 3s;
+}
+.section-1 > .fp-tableCell img,
+.section-1 > .fp-tableCell h1,
+.section-1 > .fp-tableCell p,
+.section-1 > .fp-tableCell button {
+    transform: translateY(-1000px);
+	opacity: 0;
+	transition: transform .66s cubic-bezier(0.16, 0.68, 0.43, 0.99), opacity .66s ease-in-out;
+}
+.section-1.active > .fp-tableCell img,
+.section-1.active > .fp-tableCell h1,
+.section-1.active > .fp-tableCell p,
+.section-1.active > .fp-tableCell button {
+    transform: translateY(0);
+	opacity: 1;
+}
+.section-1.active > .fp-tableCell img {
+    transition-delay: .44s;
+}
+.section-1.active > .fp-tableCell h1,
+.section-1.active > .fp-tableCell p {
+    transition-delay: .22s;
+}
+.section-1.active > .fp-tableCell button {
+    transition-delay: 0s;
+}
+/** section two **/
+.section-2 > .fp-tableCell h2,
+.section-2 > .fp-tableCell p,
+.section-2 > .fp-tableCell i {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.section-2.active > .fp-tableCell h2,
+.section-2.active > .fp-tableCell p,
+.section-2.active > .fp-tableCell i {
+    opacity: 1;
+}
+.section-2.active > .fp-tableCell p {
+    transition-delay: 0.33s;
+}
+.section-2.active > .fp-tableCell p + p {
+    transition-delay: 0.66s;
+}
+.section-2.active > .fp-tableCell p + p + p{
+    transition-delay: 0.99s;
+}
+/** section three **/
+.section-3 > .fp-tableCell h2,
+.section-3 > .fp-tableCell p,
+.section-3 > .fp-tableCell i {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.section-3.active > .fp-tableCell h2,
+.section-3.active > .fp-tableCell p,
+.section-3.active > .fp-tableCell i {
+    opacity: 1;
+}
+.section-3.active > .fp-tableCell p {
+    transition-delay: 0.33s;
+}
+.section-3.active > .fp-tableCell p + p {
+    transition-delay: 0.66s;
+}
+.section-3.active > .fp-tableCell p + p + p{
+    transition-delay: 0.99s;
+}
+/** section four **/
+.section-4 > .fp-tableCell h4 {
+    transform: translateY(-1000px);
+	opacity: 0;
+	transition: transform .8s cubic-bezier(0.16, 0.68, 0.43, 0.99), opacity .8s ease-in-out;
+}
+.section-4.active > .fp-tableCell h4 {
+    transform: translateY(0);
+	opacity: 1;
+}
+.section-4 > .fp-tableCell h5 {
+    transform: translateX(100%);
+	opacity: 0;
+	transition: transform .8s cubic-bezier(0.16, 0.68, 0.43, 0.99), opacity .8s ease-in-out;
+}
+.section-4 > .fp-tableCell h5 + h5 {
+    transform: translateX(-100%);
+}
+.section-4.active > .fp-tableCell h5 {
+	transform: translateX(0);
+	opacity: 1;
+}
+.section-4.active > .fp-tableCell h5 {
+	transition-delay: .2s;
+}
+.section-4.active > .fp-tableCell h5 + h5 {
+	transition-delay: .4s;
 }
 
 
