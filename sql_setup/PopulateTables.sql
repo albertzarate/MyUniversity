@@ -2,7 +2,7 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
 #populates student_info table
-INSERT INTO student_info (student_id, first_name, last_name, middle_name, email, sec_email, phone, address, enrolled, major, minor, expected_grad_year, expected_grad_sem, balance) VALUES ("024147310", "David", "Bond", "James", "whoisthis@gmail.com", "tacotaco@gmail.com", "(760)-775-8889", "1 Washington Sq, san jose, ca 95112", TRUE, "Art", "Graphic Design", 2021, "Fall", 0);
+INSERT INTO student_info (student_id, first_name, last_name, middle_name, email, sec_email, phone, address, enrolled, major, minor, expected_grad_year, expected_grad_sem, balance) VALUES ("024147310", "Akash", "Vachhani", "Kishor", "akash.k.vachhani@gmail.com", "tacotaco@gmail.com", "(760)-775-8889", "1 Washington Sq, san jose, ca 95112", TRUE, "Art", "Graphic Design", 2021, "Fall", 0);
 INSERT INTO student_info (student_id, first_name, last_name, middle_name, email, sec_email, phone, address, enrolled, major, minor, expected_grad_year, expected_grad_sem, balance) VALUES ("024147220", "Ijaaz", "Ramirez", "Taco", "ilovetacobell@yahoo.com", "mango_gauava@gmail.com", "(760)-441-3719", "78340 Via Clemente, La Quinta, CA 92270", False, "Art", "Graphic Design", 2018, "Spring", 0);
 INSERT INTO student_info (student_id, first_name, last_name, middle_name, email, sec_email, phone, address, enrolled, major, minor, expected_grad_year, expected_grad_sem, balance) VALUES ("024147209", "Mark", "Mathews", "Navina", "mark@gmail.com", "burito@gmail.com", "(418)-765-4312", "27 N 6th street, san jose, ca 95112", TRUE, "CS", "N/A", 2020, "Fall", 0);
 INSERT INTO student_info (student_id, first_name, last_name, middle_name, email, sec_email, phone, address, enrolled, major, minor, expected_grad_year, expected_grad_sem, balance) VALUES ("010241245", "Donald", "Lifestyle", "Change", "donald.Lifestyle@gmail.com", "lifeisbeautiful@gmail.com", "(760)-391-2222", "27 N 6th street, san jose, ca 95112", TRUE, "CmpE", "math", 2019, "Fall", 0);
@@ -82,18 +82,18 @@ Call ENGRSetup();
 
 #populates teacher_info table
 INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("070418411", "Josh", "Tallboy", "Mark", "(760)-741-7321", "HGH", 130, TRUE);
-INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("070418412", "Andrew", "Bond", "James", "(408)-412-7321", "ENGR", 337, TRUE);
-INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("027914122", "Ozemek", "Haluk", "CYL", "(298)-741-4041", "CBC", 010, FALSE);
-INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("070418418", "Josh", "Tallboy", "Mark", "(760)-741-7321", "HGH", 270, TRUE);
+INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("070418412", "Andrew", "Bond", "James", "(408)-412-7321", "ENGR", 336, TRUE);
+INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("027914122", "Ozemek", "Haluk", "CYL", "(298)-741-4041", "CBC", 020, FALSE);
+INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("070418418", "Josh", "Tallboy", "Mark", "(760)-741-7322", "HGH", 250, TRUE);
 INSERT INTO teacher_info (teacher_id, first_name, last_name, middle_name, phone, building, room_id, currently_employed) values ("070418422", "Akash", "Vachhani", "Kishor", "(510)-291-2421", "ENGR", 294, TRUE);
 
 
 #populates course_info table
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001242", "E10", "Intro to Engineering", "10:30", "11:45", "100170", 2019, "Fall", "070418411",  0, 30);
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001243", "CmpE 172", "Enterprise Software", "12:15", "14:45", "100102", 2019, "Spring", "070418412",  0, 30);
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001244", "CmpE 124", "Logic Circuit Design", "10:30", "14:15", "100106", 2019, "Fall", "027914122",  0, 30);
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001245", "Art 31", "Graphic Design", "300145", "8:00", "9:15" 2019, "Fall", "070418422",  0, 180);
-INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001246", "Comm 20", "Public Speaking", "200166", "15:30", "18:30", 2019, "Fall", "070418411",  0, 45);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001242", "E10", "Intro to Engineering", "10:30", "11:45", "200166", 2019, "Fall", "070418411",  0, 30);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001243", "CmpE 172", "Enterprise Software", "12:15", "14:45", "100219", 2019, "Spring", "070418412",  0, 30);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001244", "CmpE 124", "Logic Circuit Design", "10:30", "14:15", "300111", 2019, "Fall", "027914122",  0, 30);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001245", "Art 31", "Graphic Design", "8:00", "9:15", "200226" 2019, "Fall", "070418422",  0, 180);
+INSERT INTO course_info (course_id, name, description, start_time, end_time, room_id, year, semester, teacher_id, enrolled_amount, max_enrollment) values ("001246", "Comm 20", "Public Speaking", "15:30", "18:30", "100198", 2019, "Fall", "070418411",  0, 45);
 
 INSERT INTO enrollment_info(course_id, student_id) VALUES ("001242","024147310");
 INSERT INTO enrollment_info(course_id, student_id) VALUES ("001243","024147310");

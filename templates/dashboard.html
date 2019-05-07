@@ -80,7 +80,12 @@
                         <table>
                             <tr>
                                 <td class="identifier">Enrollment Status: </td>
-                                <td>{{dbuserinfo['enrolled']}}</td>
+                                {%if dbuserinfo['enrolled'] == 1%}
+                                  <td>Enrolled</td>
+                                {%endif%}
+                                {%if dbuserinfo['enrolled'] == 0%}
+                                  <td>Not a registered student</td>
+                                {%endif%}
                             </tr>
                             <tr>
                                 <td class="identifier">Major: </td>
@@ -98,29 +103,57 @@
                     </div>
                     <div id="Current Courses" class="tabcontent">
                         <h2>Current Courses</h2>
-                        <table style="width:70%">
+                        <table style="width:80%">
+                          <tr>
+                              <th>Course ID</th>
+                              <th>Course Name</th>
+                              <th>Room</th>
+                              <th>Professor</th>
+                              <th>Semester</th>
+                          </tr>
                             {%for course in dbuserinfo['courses']%}
                                 <tr>
-                                    <th class="section-1">Course ID</th>
-                                    <th class="section-2">Course Name</th>
-                                    <th class="section-3">Course Description</th>
-                                </tr>
-                                <tr>
                                     <td>{{course['course_id']}}</td>
-                                    <td>{{course['name']}}</td>
-                                    <td>{{course['description']}}</td>
+                                    <td>{{course['name']}}: {{course['description']}}</td>
+                                    <td>{{course['Building']}} {{course['Room Number']}}</td>
+                                    <td>{{course['f_name']}} {{course['l_name']}}</td>
+                                    <td>{{course['semester']}} {{course['year']}}</td>
                                 </tr>
                             {%endfor%}
                         </table>
                     </div>
                     <div id="Transactions" class="tabcontent">
                         <h2>Transactions</h2>
-                        <table>
-                            <tr>
-                                <td class="identifier">Balance Due: </td>
-                                <td>${{dbuserinfo['balance']}}</td>
-                            </tr>
+                        <table style="width:100%">
+                          <tr>
+                              <th>Transaction</th>
+                              <th>Type</th>
+                              <th>Amount</th>
+                              <th>Memo</th>
+                          </tr>
+                          {%for transaction in dbuserinfo['transactions']%}
+                              <tr>
+                                  <td>{{transaction['transaction_title']}}</td>
+                                  {%if transaction['deposit'] == 1%}
+                                    <td>Deposit</td>
+                                  {%endif%}
+                                  {%if transaction['deposit'] == 0%}
+                                    <td>Fee</td>
+                                  {%endif%}
+                                  <td>{{transaction['amount']}}
+                                  <td>{{transaction['note']}}
+                              </tr>
+                          {%endfor%}
                         </table>
+                        <table>
+                          <tr>
+                              <td class="identifier">Balance Due (USD): </td>
+                              <td>{{dbuserinfo['balance']}}</td>
+                          </tr>
+                        </table>
+                        <tr>Note: Negative balance means you owe money, </tr>
+                        <tr>positive balance means you paid in excess. </tr>
+                        <tr>Excess will be sent to you as a check.</tr>
                     </div>
                 </div>
             </div>

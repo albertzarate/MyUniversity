@@ -57,13 +57,16 @@ def callback_handling():
     resp = auth0.get('userinfo')
     userinfo = resp.json()
     #populate info table
+    email = userinfo['email']
     if verifyLogin(userinfo['email']):
         db_user_info = dict(getInfo(userinfo['email']).items())
-        courses = getEnrollment(db_user_info['student_id'])
+        sid = db_user_info['student_id']
+        courses = getEnrollment(sid)
         db_user_info['courses'] = courses
+        transactions = getTransactionDetails(sid)
+        db_user_info['transactions'] = transactions
     else:
         db_user_info = {'first_name': 'Unregistered', 'last_name': 'User'}
-        courses = ['N/A']
 
     session['webUserInfo'] = db_user_info
     session['profile'] = {

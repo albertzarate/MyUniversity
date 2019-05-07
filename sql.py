@@ -35,17 +35,17 @@ def getInfo(email):
 	userInfo = connectDB(query)
 	return userInfo[0]
 
-def getEnrollment(sid):
-	query = select([enrollment_info.c.course_id]).where(enrollment_info.c.student_id == sid)
-	userEnrollment = connectDB(query)
-	enrollment = []
-	for course in userEnrollment:
-		course = dict(course.items())
-		query = select([course_info]).where(course_info.c.course_id == course['course_id'])
-		result = connectDB(query)
-		if result:
-			enrollment.append(dict(result[0].items()))
-	return enrollment
+# def getEnrollment(sid):
+# 	query = select([enrollment_info.c.course_id]).where(enrollment_info.c.student_id == sid)
+# 	userEnrollment = connectDB(query)
+# 	enrollment = []
+# 	for course in userEnrollment:
+# 		course = dict(course.items())
+# 		query = select([course_info]).where(course_info.c.course_id == course['course_id'])
+# 		result = connectDB(query)
+# 		if result:
+# 			enrollment.append(dict(result[0].items()))
+# 	return enrollment
 
 def verifyLogin(email):
 	query = select([func.count(student_info.c.email)]).where(student_info.c.email == email)
@@ -61,7 +61,6 @@ def UpdateData(query):
 	res = conn.execute(query)
 	engine.dispose()
 	if res.returns_rows:
-		# use special handler for dates and decimals
 		return json.dumps([dict(r) for r in res], default=alchemyencoder,encoding='latin-1  ')
 
 def UpdateAddress(email, new_address):
@@ -75,3 +74,40 @@ def UpdatePhone(email, new_phone):
 def UpdateSecondaryEmail(email, new_sec_email):
 	query = student_info.update().where(student_info.c.email == email).values (sec_email = new_sec_email)
 	UpdateData(query)
+
+def getEnrollment(sid):
+	query = select([enrollment_info.c.course_id]).where(enrollment_info.c.student_id == sid)
+	userEnrollment = connectDB(query)
+	count = 0
+	enrollment = []
+	teacher = []
+	room = []
+	for course in userEnrollment:
+		course = dict(course.items())
+		query = select([course_info]).where(course_info.c.course_id == course['course_id'])
+		result = connectDB(query)
+		if result:
+			enrollment.append(dict(result[0].items()))
+	for i in enrollment:
+			teacher.append(i['teacher_id'])
+			room.append(i['room_id'])
+			count += 1
+	for i in range(0, count):
+		query = select([teacher_info]).where(teacher_info.c.teacher_id == teacher[i])
+		teacherInfo = connectDB(query)
+		enrollment[i]['f_name'] = teacherInfo[0][1]
+		enrollment[i]['l_name'] = teacherInfo[0][2]
+		enrollment[i]['m_name'] = teacherInfo[0][3]
+		query = select([room_info]).where(room_info.c.room_id == room[i])
+		roomInfo = connectDB(query)
+		enrollment[i]['Building'] = roomInfo[0][1]
+		enrollment[i]['Room Number'] = roomInfo[0][2]
+	return enrollment
+
+def getTransactionDetails(sid):
+	query = select([transaction_details]).where(transaction_details.c.student_id == sid)
+	transactions = connectDB(query)
+	details = []
+	for transaction in transactions:
+		details.append(dict(transaction.items()))
+	return details
