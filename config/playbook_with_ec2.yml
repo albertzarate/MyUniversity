@@ -1,0 +1,180 @@
+--- #aws ec2 instance simple https web page using Apache2
+- hosts: localhost
+  connection: local
+  gather_facts: yes
+  vars:
+    keypair: cmpe172key
+    access_key: <insert access key>
+    secret_key: <insert secret key>
+    image_id: "ami-0c55b159cbfafe1f0"
+    group_id: "sg-0ded5a4b7091f2740"
+    rds_name: myuniversity
+    rds_creds: myuniversity
+  tasks:
+  - name: create ec2 instance
+    ec2:
+      aws_access_key: "{{access_key}}"
+      aws_secret_key: "{{secret_key}}"
+      key_name: "{{ keypair }}"
+      image: "{{image_id}}"
+      wait: yes
+      instance_type: t2.micro
+      group_id: "{{group_id}}"
+      region: us-east-2
+      count_tag:
+        Name: webapp
+      instance_tags:
+        Name: myuniv
+      exact_count: 1
+    register: ec2
+
+  - local_action: copy content={{ ec2.instances[0].public_ip }} dest=public_ip.txt
+
+  - rds_instance:
+      db_instance_identifier: "{{rds_name}}"
+      engine: MySQL
+      aws_access_key: "{{access_key}}"
+      aws_secret_key: "{{secret_key}}"
+      instance_type: db.t2.micro
+      region: us-east-2
+      allocated_storage: 10
+      username: "{{rds_creds}}"
+      password: "{{rds_creds}}"
+    register: rds_instance
+
+  - local_action: copy content={{ rds_instance.endpoint.address }} dest=rds_endpoint.txt
+
+  - pause:
+      minutes: 1
+
+  - name: Change python to python3
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    raw: sudo ln -s /usr/bin/python3 /usr/bin/python
+
+  - name: Update
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    apt:
+      update_cache: yes
+
+  - name: Install pip
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    apt: name=python-pip state=present
+
+  - name: Install docker-py
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    pip: name=docker-py
+
+  - name: Install docker.io
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    apt: name=docker.io state=present
+
+  - name: Install mysql
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    apt: name=mysql-client-core-5.7 state=present
+
+  - name: Copy Dockerfile
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    copy: src=Dockerfile dest=/home/ubuntu/
+
+  - name: Copy MyUniversity.sql
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    copy: src=MyUniversity.sql dest=/home/ubuntu/
+
+  - name: Copy PopulateTables.sql
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    copy: src=PopulateTables.sql dest=/home/ubuntu/
+
+  - name: Copy commands.sql
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    copy: src=commands.sql dest=/home/ubuntu/
+
+  - name: Create Tables
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    shell: mysql -u "{{rds_creds}}" -p -h "{{rds_instance.endpoint.address}}" < /home/ubuntu/MyUniversity.sql
+
+  - name: Populate Tables
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    shell: mysql -u "{{rds_creds}}" -p -h "{{rds_instance.endpoint.address}}" < /home/ubuntu/PopulateTables.sql
+
+  - name: Add sql commands
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    shell: mysql -u "{{rds_creds}}" -p -h "{{rds_instance.endpoint.address}}" < /home/ubuntu/commands.sql
+
+  - name: Build Docker image from Dockerfile
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    docker_image:
+      name: myuniversity
+      path: /home/ubuntu/
+      state: build
+
+  - name: Create Container
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    shell: sudo docker run -dit -p 80:80 --name myuniv_container myuniversity
+
+  - name: Restart Server
+    delegate_to: "{{ ec2.instances[0].public_ip }}"
+    remote_user: ubuntu
+    become_method: sudo
+    connection: ssh
+    sudo: yes
+    shell: sudo docker exec -d myuniv_container apachectl restart
