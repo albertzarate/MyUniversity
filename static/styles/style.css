@@ -137,6 +137,18 @@ button.loggedIn {
     display: inline-block;
     margin: 0 10px;
 }
+button#start-btn {
+    margin-top: 30px;
+    width: 150px;
+    background-color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    color: #727373;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
 
 
 /** FULLPAGE FADE EFFECT **/
@@ -281,12 +293,12 @@ button.loggedIn {
 .dashboardInformation {
     margin: 10px;
 }
-.dashboardPage .tab {
+.dashboardPage .tab, .dashboardPage .tab-teacher {
     overflow: hidden;
     border: 1px solid #757575;
     background-color: #f1f1f1;
 }
-.dashboardPage .tab button {
+.dashboardPage .tab button, .dashboardPage .tab-teacher button {
     font-family: 'Lato', sans-serif;
     background-color: inherit;
     text-transform: uppercase;
@@ -299,10 +311,13 @@ button.loggedIn {
     cursor: pointer;
     transition: 0.3s;
 }
-.dashboardPage .tab button:hover {
+.dashboardPage .tab-teacher button {
+    width: 50%;
+}
+.dashboardPage .tab button:hover, .dashboardPage .tab-teacher button:hover {
     background-color: #ccc;
 }
-.dashboardPage .tab button.active {
+.dashboardPage .tab button.active, .dashboardPage .tab-teacher button.active {
     background-color: #ccc;
 }
 .dashboardPage .tabcontent {
@@ -376,12 +391,12 @@ button.loggedIn {
 
 
 /** EDIT PAGE **/
-.editPage {
+.editPage, .editTeacherPage {
     margin: 50px auto 0 auto;
     width: 75%;
     display: block;
 }
-.editPage h1 {
+.editPage h1, .editTeacherPage h1 {
     font-size: 26px;
     font-weight: 600;
     color: #000;
@@ -389,7 +404,7 @@ button.loggedIn {
     font-family: 'Lato', sans-serif;
     margin: 10px;
 }
-.editPage form {
+.editPage form, .editTeacherPage form {
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
     border: 1px solid #757575;
@@ -404,16 +419,24 @@ button.loggedIn {
     text-align: right;
     color: #000;
 }
-.editPage fieldset {
+.editTeacherPage label {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 175px;
+    text-align: right;
+    color: #000;
+}
+.editPage fieldset, .editTeacherPage fieldset {
     display: inline-block;
     margin-bottom: 20px;
 }
-.editPage input {
+.editPage input, .editTeacherPage input {
     width: 500px;
     padding: 3px 10px;
     font-family: 'Lato', sans-serif;
 }
-.editPage button {
+.editPage button, .editTeacherPage button {
     padding: 8px 50px;
     background-color: #025ca0;
     border: none;
@@ -421,7 +444,7 @@ button.loggedIn {
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
 }
-.editPage button:hover {
+.editPage button:hover,.editTeacherPage button:hover {
     background-color: #024e88;
 	-webkit-transition:background 0.3s ease-in-out;
 	-moz-transition:background 0.3s ease-in-out;
