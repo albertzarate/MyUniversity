@@ -32,8 +32,8 @@ auth0 = oauth.register(
     },
 )
 
-with open('/var/www/html/flaskapp/config/public_ip.txt', 'r') as file:
-    public_ip = file.read().replace('\n', '')
+with open('/var/www/html/flaskapp/config/url.txt', 'r') as file:
+    url = file.read().replace('\n', '')
 
 def requires_auth(f):
   @wraps(f)
@@ -51,7 +51,7 @@ def hello_world():
 
 @app.route('/login')
 def login():
-    return auth0.authorize_redirect(redirect_uri='http://{}/callback'.format(public_ip), audience='https://dev-jv5aht4v.auth0.com/userinfo')
+    return auth0.authorize_redirect(redirect_uri='http://{}/callback'.format(url), audience='https://dev-jv5aht4v.auth0.com/userinfo')
 
 @app.route('/callback')
 def callback_handling():
@@ -124,7 +124,7 @@ def logout():
     # Clear session stored data
     session.clear()
     # Redirect user to logout endpoint
-    params = {'returnTo': 'http://{}/'.format(public_ip), 'client_id': 'Wjqx-VAEe4AbTBHtScwLn-QCvpxewOe9'}
+    params = {'returnTo': 'http://{}/'.format(url), 'client_id': 'Wjqx-VAEe4AbTBHtScwLn-QCvpxewOe9'}
     return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
 
 if __name__ == '__main__':
