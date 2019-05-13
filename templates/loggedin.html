@@ -23,7 +23,12 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <button onclick="window.location.href = '/dashboard';">Dashboard</button>
+                        {%if 'teacher_id' in dbuserinfo%}
+                          <button onclick="window.location.href = '/dashboard_teacher';">Dashboard</button>
+                        {%endif%}
+                        {%if 'student_id' in dbuserinfo%}
+                          <button onclick="window.location.href = '/dashboard';">Dashboard</button>
+                        {%endif%}
                     </li>
                     <li class="nav-item">
                         <button onclick="window.location.href = '/logout';">Logout</button>
@@ -38,7 +43,12 @@
                 <img src="../static/logo.png" height="150" width="150"/>
                 <h1>Welcome, {{dbuserinfo['first_name']}} {{dbuserinfo['last_name']}}!</h1>
                 <p>{{userinfo['email']}}</p>
-                <button onclick="window.location.href = '/dashboard';">View Dashboard</button>
+                {%if 'teacher_id' in dbuserinfo%}
+                  <button onclick="window.location.href = '/dashboard_teacher';">Dashboard</button>
+                {%endif%}
+                {%if 'student_id' in dbuserinfo%}
+                  <button onclick="window.location.href = '/dashboard';">Dashboard</button>
+                {%endif%}
             </div>
             <div class="section section-2">
                 <div class="two-third">
@@ -58,7 +68,7 @@
                 <div class="two-third">
                     <h2>WELL FEAR NO MORE!</h2>
                     <p>Our website is nice, clean, and cozy. You'll feel right at home using our website.</p>
-                    <p>You can do all the things MySJSU can do: sign up, log in, log out, log in again, look at and update your personal information, view your academic status and current courses, and check your balance due.</p> 
+                    <p>You can do all the things MySJSU can do: sign up, log in, log out, log in again, look at and update your personal information, view your academic status and current courses, and check your balance due.</p>
                     <p>Doesn't that sound great?</p>
                 </div>
             </div>
@@ -68,7 +78,7 @@
                 <h5>- Thanos</h5>
             </div>
         </div>
-        
+
         <script src="js/jquery.fullpage.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -84,7 +94,7 @@
                     x.className = x.className.replace(" w3-show", "");
                 }
             }
-            
+
             $(document).ready(function() {
                 $('#fullpage').fullpage({
                     sectionsColor: ['#fff', '#025ca0', '#f1f1f1', '#727373'],

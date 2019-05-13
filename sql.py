@@ -36,6 +36,11 @@ def getInfo(email):
 	userInfo = connectDB(query)
 	return userInfo[0]
 
+def getTeacherInfo(email):
+	query = select([teacher_info]).where(teacher_info.c.email == email)
+	userInfo = connectDB(query)
+	return userInfo[0]
+
 def verifyLogin(email):
 	query = select([func.count(student_info.c.email)]).where(student_info.c.email == email)
 	isVerified = connectDB(query)
@@ -44,6 +49,19 @@ def verifyLogin(email):
 		return True
 	else:
 		return False
+
+def verifyRole(email):
+	query = select([func.count(student_info.c.email)]).where(student_info.c.email == email)
+	studentRole = connectDB(query)
+	if(studentRole[0][0] == 1):
+		return 'student'
+	else:
+		query = select([func.count(teacher_info.c.email)]).where(teacher_info.c.email == email)
+		teacherRole = connectDB(query)
+		if(teacherRole[0][0] == 1):
+			return 'teacher'
+		else:
+			return 'unauthorized'
 
 def UpdateData(query):
 	conn = engine.connect()

@@ -14,6 +14,7 @@ from six.moves.urllib.parse import urlencode
 from functools import wraps
 from sql import *
 import cgi
+import requests
 form = cgi.FieldStorage()
 
 app = Flask(__name__)
@@ -57,17 +58,20 @@ def login():
 def callback_handling():
     # Handles response from token endpoint
     auth0.authorize_access_token()
+    session.clear()
     resp = auth0.get('userinfo')
     userinfo = resp.json()
     #populate info table
     email = userinfo['email']
-    if verifyLogin(userinfo['email']):
-        db_user_info = dict(getInfo(userinfo['email']).items())
+    if verifyRole(email) is 'student':
+        db_user_info = dict(getInfo(email).items())
         sid = db_user_info['student_id']
         courses = getEnrollment(sid)
         db_user_info['courses'] = courses
         transactions = getTransactionDetails(sid)
         db_user_info['transactions'] = transactions
+    elif verifyRole(email) is 'teacher':
+        db_user_info = dict(getTeacherInfo(email).items())
     else:
         db_user_info = {'first_name': 'Unregistered', 'last_name': 'User'}
 
@@ -76,7 +80,7 @@ def callback_handling():
         'user_id': userinfo['sub'],
         'name': userinfo['name'],
         'picture': userinfo['picture'],
-        'email': userinfo['email']
+        'email': email
     }
     return redirect('/loggedin')
 
@@ -88,7 +92,30 @@ def loggedin():
 @app.route('/dashboard')
 @requires_auth
 def dashboard():
-    return render_template('dashboard.html', userinfo=session['profile'], dbuserinfo=session['webUserInfo'])
+    sjsu_weather = 'https://api.darksky.net/forecast/31571daf618cff5e698e9e539077ab18/37.3357807,-121.8821639'
+    r = requests.get(url = sjsu_weather)
+    weather = r.json()
+    session['webUserInfo']['weather'] = weather
+    sjsu_news = 'https://newsapi.org/v2/everything?q=+SJSU&language=en&sortby=relevancy&apiKey=c10d5c779e324c6ebf5302c19f254771'
+    r = requests.get(url = sjsu_news)
+    news = r.json()
+    session['webUserInfo']['news'] = news
+    session.modified = True
+    return render_template('dashboard.html', userinfo=session['profile'], dbuserinfo=session['webUserInfo'], weather=session['webUserInfo']['weather'], news=session['webUserInfo']['news'])
+
+@app.route('/dashboard_teacher')
+@requires_auth
+def dashboard_teacher():
+    sjsu_weather = 'https://api.darksky.net/forecast/31571daf618cff5e698e9e539077ab18/37.3357807,-121.8821639'
+    r = requests.get(url = sjsu_weather)
+    weather = r.json()
+    session['webUserInfo']['weather'] = weather
+    sjsu_news = 'https://newsapi.org/v2/everything?q=+SJSU&language=en&sortby=relevancy&apiKey=c10d5c779e324c6ebf5302c19f254771'
+    r = requests.get(url = sjsu_news)
+    news = r.json()
+    session['webUserInfo']['news'] = news
+    session.modified = True
+    return render_template('dashboard_teacher.html', userinfo=session['profile'], dbuserinfo=session['webUserInfo'], weather=session['webUserInfo']['weather'], news=session['webUserInfo']['news'])
 
 @app.route('/edit')
 @requires_auth
