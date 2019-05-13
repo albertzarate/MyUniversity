@@ -47,6 +47,8 @@ An Ansible file exists in the config folder. It'll create an EC2 instance on AWS
 * NewsAPI News
 * DarkSky Weather
 
+## Video Demo
+https://youtu.be/PxCyvCKT4EA
 
 ## Helpful Links
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
