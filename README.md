@@ -21,9 +21,9 @@ Get the mysql host from Udit.
 
 ## SSO/Authentication
 
-MyUniversity uses Auth0 SS0 Authentication which allows users to login via Google or username/pass. All users must use The Guardian App by Auth0 for multi-factor authentication. Based on login, user roles will be decided. 
+MyUniversity uses Auth0 SS0 Authentication which allows users to login via Google or username/pass. All users must use The Guardian App by Auth0 for multi-factor authentication. We have also included role-based authentication.
 
-## Roles
+## Role-Based
 
 MyUniversity is a multi-role web application meaning that depending on the login user, they will be presented with a  different web UI showing information relavant to them. Students and teachers/professors will both have access to the useful tools we've integrated. 
 
@@ -48,6 +48,9 @@ An Ansible file exists in the config folder. It'll create an EC2 instance on AWS
 
 ## Video Demo
 https://youtu.be/PxCyvCKT4EA
+
+## Donations for Technologies
+Please feel free to give us some money for incorporating https on an enterprise-grade production Apache2 web server. I can tell you right now that https can only be accomplished for free if the certificates are self-signed (bogus) or you decide to use a development server (very insecure). Look out for this! Also feel free to donate some money for us to integrate Dropbox, Office 365, and Slack ~ we can easily do this with some money. 
 
 ## Helpful Links
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
