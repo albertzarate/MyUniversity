@@ -39,7 +39,13 @@ Docker is installed on the AWS EC2 instance and is used to create containers of 
 
 ## Ansible
 
-An Ansible file exists in the config folder. It'll SSH into an AWS EC2 instance, install pip, install docker-py, install docker.io, copy over the Dockerfile, build an image from the Dockerfile, create a container using that image, and start the apache server on port 80. The container's port 80 is forwarded to port 80 of the host (EC2 instance). When running the playbook, make sure the Dockerfile is in the same directory as the playbook. 
+An Ansible file exists in the config folder. It'll create an EC2 instance on AWS, create an RDS MySQL instance on AWS, SSH into the AWS EC2 instance, install pip, install docker-py, install docker.io, copy over the Dockerfile, build an image from the Dockerfile, create a container using that image, and start the apache server on port 80. The container's port 80 is forwarded to port 80 of the host (EC2 instance). When running the playbook, make sure the Dockerfile is in the same directory as the playbook. 
+
+## Integrations
+* Google Maps
+* Google Calendar
+* NewsAPI News
+* DarkSky Weather
 
 
 ## Helpful Links
