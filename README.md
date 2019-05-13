@@ -50,7 +50,7 @@ An Ansible file exists in the config folder. It'll create an EC2 instance on AWS
 https://youtu.be/PxCyvCKT4EA
 
 ## Donations for Technologies
-Please feel free to give us some money for incorporating https on an enterprise-grade production Apache2 web server. I can tell you right now that https can only be accomplished for free if the certificates are self-signed (bogus) or you decide to use a development server (very insecure). Look out for this! Also feel free to donate some money for us to integrate Dropbox, Office 365, and Slack ~ we can easily do this with some money. 
+Please feel free to give us some money for incorporating https on an enterprise-grade production Apache2 web server. I can tell you right now that https can only be accomplished for free if the certificates are self-signed (bogus) or you decide to use a development server (very insecure). Look out for this! Also feel free to donate some money for us to integrate Dropbox, Office 365, and Slack ~ we can easily do this with some money. Additionally, our free trial ends on May 16, 2019 for Auth0 authentication so if you'd like to lend us $13 a month we'll gladly keep our website hosted!
 
 ## Helpful Links
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
