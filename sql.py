@@ -1,8 +1,9 @@
 from sqlalchemy import *
 
+with open('config/rds_endpoint.txt', 'r') as file:
+    rds_endpoint = file.read().replace('\n', '')
 
-# engine = create_engine('mysql+pymysql://myuniversity:myuniversity@ec2-18-222-192-36.us-east-2.compute.amazonaws.com:3306/MyUniversity')
-engine = create_engine('mysql+pymysql://myuniversity:myuniversity@myuniversity.cwscsavqzqxt.us-east-2.rds.amazonaws.com:3306/MyUniversity')
+engine = create_engine('mysql+pymysql://myuniversity:myuniversity@{}:3306/MyUniversity'.format(rds_endpoint))
 inspector = inspect(engine)
 meta = MetaData(engine,reflect=True)
 student_info = meta.tables['student_info']
@@ -34,18 +35,6 @@ def getInfo(email):
 	query = select([student_info]).where(student_info.c.email == email)
 	userInfo = connectDB(query)
 	return userInfo[0]
-
-# def getEnrollment(sid):
-# 	query = select([enrollment_info.c.course_id]).where(enrollment_info.c.student_id == sid)
-# 	userEnrollment = connectDB(query)
-# 	enrollment = []
-# 	for course in userEnrollment:
-# 		course = dict(course.items())
-# 		query = select([course_info]).where(course_info.c.course_id == course['course_id'])
-# 		result = connectDB(query)
-# 		if result:
-# 			enrollment.append(dict(result[0].items()))
-# 	return enrollment
 
 def verifyLogin(email):
 	query = select([func.count(student_info.c.email)]).where(student_info.c.email == email)
