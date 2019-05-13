@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dashboard | MyUniversity</title>
+        <link rel="shortcut icon" href="/static/logo.png"/>
+        <link rel="stylesheet" href="../static/styles/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm">
+            <a class="navbar-brand" href="/loggedin"><img src="../static/MyUniversity-logo.png" alt="logo" style="height:40px; margin-right:10px;">MyUniversity</a>
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button onclick="window.location.href = '/dashboard';">Dashboard</button>
+                    </li>
+                    <li class="nav-item">
+                        <button onclick="window.location.href = '/logout';">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section>
+            <div class="editTeacherPage">
+                <h1>Edit Information</h1>
+                <form id="form" method="post">
+                    <label for="course_name" style="margin-top:30px;">Course Name</label>
+                    <fieldset>
+                        <input name="course_name" type="text" tabindex="1">
+                    </fieldset><br />
+                    <label for="course_description">Course Description</label>
+                    <fieldset>
+                        <input name="course_description" type="text" tabindex="2">
+                    </fieldset><br />
+                    <fieldset>
+                        <button type="submit" value="Submit">Update Information</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+        <footer>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
