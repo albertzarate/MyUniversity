@@ -1,6 +1,6 @@
 from sqlalchemy import *
 
-with open('config/rds_endpoint.txt', 'r') as file:
+with open('/var/www/html/flaskapp/config/rds_endpoint.txt', 'r') as file:
     rds_endpoint = file.read().replace('\n', '')
 
 engine = create_engine('mysql+pymysql://myuniversity:myuniversity@{}:3306/MyUniversity'.format(rds_endpoint))
