@@ -32,7 +32,7 @@ auth0 = oauth.register(
     },
 )
 
-with open('config/public_ip.txt', 'r') as file:
+with open('/var/www/html/flaskapp/config/public_ip.txt', 'r') as file:
     public_ip = file.read().replace('\n', '')
 
 def requires_auth(f):
