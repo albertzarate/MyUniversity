@@ -1,15 +1,5 @@
 # MyUniversity
 
-Installed on this EC2 instance is mysql 5.7. You can connect to it via CLI using the following command:
-```
-mysql -u myuniversity -p -h myuniversity.......us-east-2.rds.amazonaws.com
-```
-Get the mysql host from Udit.
-
-I've included a sample python script on how to login to mysql programmatically. 
-Feel free to test out code there. Once you're happy with the code, feel free to 
-add it to the flask app and see if it works there too. 
-
 ## Logging Into EC2 Instance
 1. Download the pem key
 2. Run: 
@@ -22,10 +12,16 @@ ssh -i "somekey.pem" ubuntu@ec2-......compute.amazonaws.com
 ```
 Get the ec2 host from Udit.
 
+## Accessing MySQL on AWS RDS
+Installed on this RDS instance is mysql 5.7. You can connect to it via CLI using the following command:
+```
+mysql -u myuniversity -p -h myuniversity.......us-east-2.rds.amazonaws.com
+```
+Get the mysql host from Udit.
+
 ## SSO/Authentication
 
 MyUniversity uses Auth0 SS0 Authentication which allows users to login via Google or username/pass. All users must use The Guardian App by Auth0 for multi-factor authentication. Based on login, user roles will be decided. 
-
 
 ## Roles
 
