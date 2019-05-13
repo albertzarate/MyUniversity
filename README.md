@@ -22,6 +22,11 @@ ssh -i "somekey.pem" ubuntu@ec2-......compute.amazonaws.com
 ```
 Get the ec2 host from Udit.
 
+## SSO/Authentication
+
+MyUniversity uses Auth0 SS0 Authentication which allows users to login via Google or username/pass. All users must use The Guardian App by Auth0 for multi-factor authentication. Based on login, user roles will be decided. 
+
+
 ## Roles
 
 MyUniversity is a multi-role web application meaning that depending on the login user, they will be presented with a  different web UI showing information relavant to them. Students and teachers/professors will both have access to the useful tools we've integrated. 
