@@ -22,11 +22,9 @@ ssh -i "somekey.pem" ubuntu@ec2-......compute.amazonaws.com
 ```
 Get the ec2 host from Udit.
 
-## Goal
+## Roles
 
-End goal is to use python and this mysql-connector package to read and write from 
-AWS RDS MySQL which running in the same VPC. Afterwards, the HTML/CSS should be able
-to render that information in tables/graphs. 
+MyUniversity is a multi-role web application meaning that depending on the login user, they will be presented with a  different web UI showing information relavant to them. Students and teachers/professors will both have access to the useful tools we've integrated. 
 
 ## Jenkins
 
